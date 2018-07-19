@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlList tableName="dpc_user_tab">
+	<primaryKey dbPrimaryKey="id" classPrimaryKey="id" type="java.lang.Long"/>
+	<tableFiledList>
+			<filed dbFiledName="user_id"                classFiledName="userId"             type="java.lang.String"/>
+			<filed dbFiledName="password"               classFiledName="password"           type="java.lang.String"/>
+			<filed dbFiledName="user_name"              classFiledName="userName"           type="java.lang.String"/>
+			<filed dbFiledName="real_name"              classFiledName="realName"           type="java.lang.String"/>
+			<filed dbFiledName="leaders_tel"            classFiledName="leadersTel"         type="java.lang.String"/>
+			<filed dbFiledName="mail_address"           classFiledName="mailAddress"        type="java.lang.String"/>
+			<filed dbFiledName="address"                classFiledName="address"            type="java.util.Date"/>
+			<filed dbFiledName="user_type"              classFiledName="userType"           type="java.lang.String"/>
+			<filed dbFiledName="remarks"                classFiledName="remarks"            type="java.util.Date"/>
+            <filed dbFiledName="control_confirm_flg"    classFiledName="controlConfirmFlg"  type="java.lang.String"/>
+            <filed dbFiledName="company_id"             classFiledName="companyId"          type="java.lang.String"/>
+            <filed dbFiledName="role_id"                classFiledName="roleId"             type="java.lang.String"/>
+            <filed dbFiledName="del_flg"                classFiledName="delFlg"             type="java.lang.String"/>
+            <filed dbFiledName="ins_user"               classFiledName="insUser"            type="java.lang.String"/>
+            <filed dbFiledName="ins_time"               classFiledName="insTime"            type="java.lang.String"/>
+            <filed dbFiledName="upd_user"               classFiledName="updUser"            type="java.util.Date"/>
+            <filed dbFiledName="upd_time"               classFiledName="updTime"            type="java.lang.String"/>
+            <filed dbFiledName="reserve_col_1"          classFiledName="reserveCol1"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_2"          classFiledName="reserveCol2"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_3"          classFiledName="reserveCol3"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_4"          classFiledName="reserveCol4"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_5"          classFiledName="reserveCol5"        type="java.util.Date"/>
+	</tableFiledList>
+	<sqlElement key="findByObj">
+	    <![CDATA[
+			select
+			    A.id as id,
+			    A.user_id as userId,
+			    A.password as password,
+			    A.user_name as userName,
+			    A.real_name as realName,
+			    A.leaders_tel as leadersTel,
+			    A.mail_address as mailAddress,
+			    A.address as address,
+			    A.user_type as userType,
+			    A.remarks as remarks,
+			    A.control_confirm_flg as controlConfirmFlg,
+			    A.company_id as companyId,
+			    A.role_id as roleId,
+			    A.del_flg as delFlg,
+			    A.ins_user as insUser,
+			    A.ins_time as insTime,
+			    A.upd_user as updUser,
+			    A.upd_time as updTime,
+			    A.reserve_col_1 as reserveCol1,
+			    A.reserve_col_2 as reserveCol2,
+			    A.reserve_col_3 as reserveCol3,
+			    A.reserve_col_4 as reserveCol4,
+			    A.reserve_col_5 as reserveCol5,
+			from
+			    dpc_user_tab A
+			where 1 = 1
+			#if("$!id" != "") and A.id = :id #end
+			#if("$!userId" != "") and A.user_id = :userId #end
+			#if("$!password" != "") and A.password = :password #end
+			#if("$!userName" != "") and A.user_name = :userName #end
+			#if("$!realName" != "") and A.real_name = :realName #end
+			#if("$!leadersTel" != "") and A.leaders_tel = :leadersTel #end
+			#if("$!mailAddress" != "") and A.mail_address = :mailAddress #end
+			#if("$!address" != "") and A.address = :address #end
+			#if("$!userType" != "") and A.user_type = :userType #end
+			#if("$!remarks" != "") and A.remarks = :remarks #end
+			#if("$!controlConfirmFlg" != "") and A.control_confirm_flg = :controlConfirmFlg #end
+			#if("$!companyId" != "") and A.company_id = :companyId #end
+			#if("$!roleId" != "") and A.role_id = :roleId #end
+			#if("$!delFlg" != "") and A.del_flg = :delFlg #end
+			#if("$!insUser" != "") and A.ins_user = :insUser #end
+			#if("$!insTime" != "") and A.ins_time = :insTime #end
+			#if("$!updUser" != "") and A.upd_user = :updUser #end
+			#if("$!updTime" != "") and A.upd_time = :updTime #end
+			#if("$!reserveCol1" != "") and A.reserve_col_1 = :reserveCol1 #end
+			#if("$!reserveCol2" != "") and A.reserve_col_2 = :reserveCol2 #end
+			#if("$!reserveCol3" != "") and A.reserve_col_3 = :reserveCol3 #end
+			#if("$!reserveCol4" != "") and A.reserve_col_4 = :reserveCol4 #end
+			#if("$!reserveCol5" != "") and A.reserve_col_5 = :reserveCol5 #end
+	    ]]>
+    </sqlElement>
+</sqlList>

@@ -7,6 +7,8 @@
 							http://www.springframework.org/schema/context
 							http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="biz.wfj.smallprogram.core"/>
+
 	<!-- 引入数据源配置文件(所有数据源的配置文件中的key一定要唯一，否则出现值引用最早引用文件中的值) -->
 	<!-- 如在mysql和sqlServer配置文件中写相同的key是‘c3p0.user’
 		  引用时先引用了sqlServer配置文件，并且设置数据源时都使用${c3p0.user}

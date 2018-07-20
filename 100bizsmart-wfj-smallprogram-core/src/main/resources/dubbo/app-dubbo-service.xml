@@ -17,4 +17,7 @@
 	<dubbo:service interface="biz.wfj.smallprogram.api.service.DfieldCheckService" ref="dfieldCheckService" timeout="12000"/>
 
     <dubbo:service interface="biz.wfj.smallprogram.api.service.DpcUserTabService" ref="dpcUserTabService" timeout="12000"/>
+
+    <dubbo:service interface="biz.wfj.smallprogram.api.service.TokenService" ref="tokenService" timeout="12000"/>
+    <dubbo:service interface="biz.wfj.smallprogram.api.service.ApiUserService" ref="apiUserService" timeout="12000"/>
 </beans>

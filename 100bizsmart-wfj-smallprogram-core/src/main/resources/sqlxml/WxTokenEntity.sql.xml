@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlList tableName="wx_token">
+	<primaryKey dbPrimaryKey="id" classPrimaryKey="id" type="java.lang.Long"/>
+	<tableFiledList>
+			<filed dbFiledName="open_id" classFiledName="openId" type="java.lang.String"/>
+			<filed dbFiledName="union_id" classFiledName="unionId" type="java.lang.String"/>
+			<filed dbFiledName="session_key" classFiledName="sessionKey" type="java.lang.String"/>
+			<filed dbFiledName="token" classFiledName="token" type="java.lang.String"/>
+			<filed dbFiledName="expire_time" classFiledName="expireTime" type="java.lang.String"/>
+			<filed dbFiledName="update_time" classFiledName="updateTime" type="java.lang.String"/>
+	</tableFiledList>
+	<sqlElement key="findByObj">
+	    <![CDATA[
+			select
+			*
+			from wx_token A where 1 = 1
+			#if("$!openId" != "") and A.open_id = :openId #end
+	    ]]>
+    </sqlElement>
+
+</sqlList>

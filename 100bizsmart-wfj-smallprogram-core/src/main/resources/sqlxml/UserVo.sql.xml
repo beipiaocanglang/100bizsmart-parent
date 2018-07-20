@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlList tableName="nideshop_user">
+	<primaryKey dbPrimaryKey="userId" classPrimaryKey="userId" type="java.lang.Long"/>
+	<tableFiledList>
+			<filed dbFiledName="username" classFiledName="username" type="java.lang.String"/>
+			<filed dbFiledName="password" classFiledName="password" type="java.lang.String"/>
+			<filed dbFiledName="gender" classFiledName="gender" type="java.lang.String"/>
+			<filed dbFiledName="birthday" classFiledName="birthday" type="java.lang.String"/>
+			<filed dbFiledName="register_time" classFiledName="register_time" type="java.lang.String"/>
+			<filed dbFiledName="last_login_time" classFiledName="last_login_time" type="java.util.Date"/>
+			<filed dbFiledName="last_login_ip" classFiledName="last_login_ip" type="java.lang.String"/>
+			<filed dbFiledName="user_level_id" classFiledName="user_level_id" type="java.util.Date"/>
+			<filed dbFiledName="weixin_openid" classFiledName="weixin_openid" type="java.util.Date"/>
+	</tableFiledList>
+	<sqlElement key="findByObj">
+	    <![CDATA[
+			select
+			*
+			from nideshop_user A where 1 = 1
+			#if("$!weixin_openid" != "") and A.weixin_openid = :weixin_openid #end
+	    ]]>
+    </sqlElement>
+
+</sqlList>

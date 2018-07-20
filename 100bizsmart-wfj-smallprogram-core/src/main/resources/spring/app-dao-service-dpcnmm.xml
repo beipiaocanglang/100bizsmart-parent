@@ -13,4 +13,18 @@
     <bean id="dpcUserTabService" class="biz.wfj.smallprogram.core.service.impl.DpcUserTabServiceImpl">
         <constructor-arg index="0" ref="dpcUserTabDao"/>
     </bean>
+
+    <bean id="apiTokenDao" class="biz.wfj.smallprogram.core.dao.impl.ApiTokenDaoImpl" parent="genericNamedDao"/>
+    <bean id="apiWxTokenDao" class="biz.wfj.smallprogram.core.dao.impl.ApiWxTokenDaoImpl" parent="genericNamedDao"/>
+    <bean id="tokenService" class="biz.wfj.smallprogram.core.service.impl.TokenServiceImpl">
+        <constructor-arg index="0" ref="apiTokenDao"/>
+        <constructor-arg index="1" ref="apiWxTokenDao"/>
+    </bean>
+
+    <bean id="apiUserDao" class="biz.wfj.smallprogram.core.dao.impl.ApiUserDaoImpl" parent="genericNamedDao"/>
+    <bean id="apiUserLevelDao" class="biz.wfj.smallprogram.core.dao.impl.ApiUserLevelDaoImpl" parent="genericNamedDao"/>
+    <bean id="apiUserService" class="biz.wfj.smallprogram.core.service.impl.ApiUserServiceImpl">
+        <constructor-arg index="0" ref="apiUserDao"/>
+        <constructor-arg index="1" ref="apiUserLevelDao"/>
+    </bean>
 </beans>

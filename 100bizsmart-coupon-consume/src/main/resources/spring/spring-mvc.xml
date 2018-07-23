@@ -49,14 +49,10 @@
     <bean id="exceptionHandler" class="biz.coupon.consume.plugins.UnifiedExceptionHandler"/>
 
     <!-- 请求拦截工作 -->
-    <mvc:resources mapping="/images/**" location="api/images/" cache-period="31556926"/>
-    <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
-    <mvc:resources mapping="/css/**" location="api/css/" cache-period="31556926"/>
-    <mvc:resources mapping="/plugins/**" location="/plugins/" cache-period="31556926"/>
-    <mvc:resources mapping="/html/**" location="/html/" cache-period="31556926"/>
-    <mvc:resources mapping="/static/**" location="/static/" cache-period="31556926"/>
-    <mvc:resources mapping="/api/**" location="/api/" cache-period="31556926"/>
-    <mvc:resources mapping="/*.html" location="/" cache-period="31556926"/>
+    <!--放行静态资源-->
+    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/js/**" location="assets/js/" cache-period="31556926"/>
+    <mvc:resources mapping="/css/**" location="assets/css/" cache-period="31556926"/>
 
     <!-- 文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -67,4 +63,67 @@
 
     <!-- springMVC 整合 swagger 生成Restful接口文档  -->
     <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
+
+    <bean id="_jacksonObjectMapper" class="biz.consume.frame.util.JacksonObjectMapperFactory"></bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="writeAcceptCharset" value="false"/>
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=utf-8</value>
+                            <value>text/plain;charset=utf-8</value>
+                        </list>
+                    </property>
+                </bean>
+                <!--json转换工具-->
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="objectMapper" ref="_jacksonObjectMapper" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 第三步：注册处理器映射器/处理器适配器 ，添加conversion-service属性 设置json返回乱码的问题  在源码SpringHttpMessageConverter中默认用的是ISO-8859-1 -->
+    <mvc:annotation-driven conversion-service="conversionService">
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>text/html;charset=utf-8</value>
+                        <value>text/plain;charset=utf-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!-- 线程执行器配置，用于任务注册 -->
+    <bean id="executor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10" />
+        <property name="maxPoolSize" value="100" />
+        <property name="queueCapacity" value="500" />
+    </bean>
+    <!-- 调度业务 -->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="expireJobTask" />
+        <property name="targetMethod" value="doJob" />
+    </bean>
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail" />
+        <!-- 每天0点触发 -->
+        <property name="cronExpression" value="0 0 0 * * ?" />
+    </bean>
+    <!-- 设置调度 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger" />
+            </list>
+        </property>
+        <property name="taskExecutor" ref="executor" />
+    </bean>
 </beans>

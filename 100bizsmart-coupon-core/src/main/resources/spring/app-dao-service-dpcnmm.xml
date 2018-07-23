@@ -14,6 +14,17 @@
         <constructor-arg index="0" ref="dpcUserTabDao"/>
     </bean>
 
+    <bean id="couponMainDao" class="biz.coupon.core.dao.impl.CouponMainDaoImpl" parent="genericNamedDao"/>
+    <bean id="mainCouponService" class="biz.coupon.core.service.impl.MainCouponServiceImpl">
+        <constructor-arg index="0" ref="couponMainDao"/>
+    </bean>
+
+    <bean id="couponDetailDao" class="biz.coupon.core.dao.impl.CouponDetailDaoImpl" parent="genericNamedDao"/>
+    <bean id="detailCouponService" class="biz.coupon.core.service.impl.DetailCouponServiceImpl">
+        <constructor-arg index="0" ref="couponDetailDao"/>
+    </bean>
+
+
     <!--<bean id="apiUserDao" class="biz.wfj.smallprogram.core.dao.impl.ApiUserDaoImpl" parent="genericNamedDao"/>
     <bean id="apiUserLevelDao" class="biz.wfj.smallprogram.core.dao.impl.ApiUserLevelDaoImpl" parent="genericNamedDao"/>
     <bean id="apiUserService" class="biz.wfj.smallprogram.core.service.impl.ApiUserServiceImpl">

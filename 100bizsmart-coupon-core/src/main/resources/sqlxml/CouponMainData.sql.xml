@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="biz.coupon.api.dao.CouponMainDao" >
+  <resultMap id="BaseResultMap" type="biz.coupon.api.model.CouponMainData" >
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="createdTime" jdbcType="DATE" property="createdTime" />
+    <result column="modifiedTime" jdbcType="DATE" property="modifiedTime" />
+    <result column="rid" jdbcType="VARCHAR" property="rid" />
+    <result column="promotionCode" jdbcType="VARCHAR" property="promotionCode" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="capital" jdbcType="DECIMAL" property="capital" />
+    <result column="faceValue" jdbcType="DECIMAL" property="faceValue" />
+    <result column="threshold" jdbcType="DECIMAL" property="threshold" />
+    <result column="exemption" jdbcType="DECIMAL" property="exemption" />
+    <result column="beginDate" jdbcType="VARCHAR" property="beginDate" />
+    <result column="endDate" jdbcType="VARCHAR" property="endDate" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="createdon" jdbcType="VARCHAR" property="createdon" />
+    <result column="countMax" jdbcType="INTEGER" property="countMax" />
+    <result column="userCountMax" jdbcType="INTEGER" property="userCountMax" />
+    <result column="guide" jdbcType="VARCHAR" property="guide" />
+    <result column="processer" jdbcType="VARCHAR" property="processer" />
+    <result column="storeId" jdbcType="VARCHAR" property="storeId" />
+  </resultMap>
+
+  <!-- 保存活动 -->
+  <insert id="saveCouponMainData" parameterType="com.ht.domain.CouponMainData" useGeneratedKeys="true" keyProperty="id">
+    insert into coupon_main
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="modifiedTime != null">
+        modifiedTime,
+      </if>
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="promotionCode != null">
+        promotionCode,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="capital != null">
+        capital,
+      </if>
+      <if test="faceValue != null">
+        faceValue,
+      </if>
+      <if test="threshold != null">
+        threshold,
+      </if>
+      <if test="exemption != null">
+        exemption,
+      </if>
+      <if test="beginDate != null">
+        beginDate,
+      </if>
+      <if test="endDate != null">
+        endDate,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="createdon != null">
+        createdon,
+      </if>
+      <if test="countMax != null">
+        countMax,
+      </if>
+      <if test="userCountMax != null">
+        userCountMax,
+      </if>
+      <if test="guide != null">
+        guide,
+      </if>
+      <if test="processer != null">
+        processer,
+      </if>
+      <if test="storeId != null">
+        storeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=DATE},
+      </if>
+      <if test="modifiedTime != null">
+        #{modifiedTime,jdbcType=DATE},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionCode != null">
+        #{promotionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null">
+        #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="threshold != null">
+        #{threshold,jdbcType=DECIMAL},
+      </if>
+      <if test="exemption != null">
+        #{exemption,jdbcType=DECIMAL},
+      </if>
+      <if test="beginDate != null">
+        #{beginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createdon != null">
+        #{createdon,jdbcType=VARCHAR},
+      </if>
+      <if test="countMax != null">
+        #{countMax,jdbcType=INTEGER},
+      </if>
+      <if test="userCountMax != null">
+        #{userCountMax,jdbcType=INTEGER},
+      </if>
+      <if test="guide != null">
+        #{guide,jdbcType=VARCHAR},
+      </if>
+      <if test="processer != null">
+        #{processer,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <!-- 更新活动 -->
+  <update id="updateCouponMainData" parameterType="com.ht.domain.CouponMainData">
+    update coupon_main
+    <set>
+      <if test="createdTime != null">
+        createdTime = #{createdTime,jdbcType=DATE},
+      </if>
+      <if test="modifiedTime != null">
+        modifiedTime = #{modifiedTime,jdbcType=DATE},
+      </if>
+      <if test="rid != null">
+        rid = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionCode != null">
+        promotionCode = #{promotionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="capital != null">
+        capital = #{capital,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        faceValue = #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="threshold != null">
+        threshold = #{threshold,jdbcType=DECIMAL},
+      </if>
+      <if test="exemption != null">
+        exemption = #{exemption,jdbcType=DECIMAL},
+      </if>
+      <if test="beginDate != null">
+        beginDate = #{beginDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        endDate = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createdon != null">
+        createdon = #{createdon,jdbcType=VARCHAR},
+      </if>
+      <if test="countMax != null">
+        countMax = #{countMax,jdbcType=INTEGER},
+      </if>
+      <if test="userCountMax != null">
+        userCountMax = #{userCountMax,jdbcType=INTEGER},
+      </if>
+      <if test="guide != null">
+        guide = #{guide,jdbcType=VARCHAR},
+      </if>
+      <if test="processer != null">
+        processer = #{processer,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        storeId = #{storeId,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!-- 查询结果集 -->
+  <sql id="Base_Column_List">
+    id, createdTime, modifiedTime, rid, promotionCode, type, name, capital, faceValue,
+    threshold, exemption, beginDate, endDate, state, createdon, countMax, userCountMax,
+    guide, processer, storeId
+  </sql>
+
+  <!-- 按ID查询活动详情 -->
+  <select id="getCouponMainDataById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from coupon_main
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <!-- 按活动code查询活动详情 -->
+  <select id="getCouponMainDataByCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from coupon_main
+    where promotionCode = #{promotionCode}
+  </select>
+
+  <!-- 按活动code查询活动详情 -->
+  <select id="getCouponMainDataListByCouponMainData" parameterType="com.ht.domain.CouponMainData" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from coupon_main
+    <where>
+      1=1
+      <if test="state != null">
+        AND state = #{state}
+      </if>
+      <if test="type != null">
+        AND type = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="storeId != null">
+        AND storeId = #{storeId,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+
+  <!-- 查询所有活动详情 -->
+  <select id="getCouponMainDataListAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from coupon_main
+    ORDER BY createdTime DESC
+  </select>
+
+  <!-- 聚合搜索 -->
+  <select id="countCouponMainData" parameterType="com.ht.domain.CouponMainData">
+    select count(*)
+    from coupon_main
+    <where>
+      1=1
+      <if test="state != null">
+        AND state = #{state,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null">
+        AND type = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="storeId != null">
+        AND storeId = #{storeId,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>

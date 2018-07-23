@@ -17,4 +17,7 @@
 	<dubbo:service interface="biz.coupon.api.service.DfieldCheckService" ref="dfieldCheckService" timeout="12000"/>
 
     <dubbo:service interface="biz.coupon.api.service.DpcUserTabService" ref="dpcUserTabService" timeout="12000"/>
+
+    <dubbo:service interface="biz.coupon.api.service.MainCouponService" ref="mainCouponService" timeout="12000"/>
+    <dubbo:service interface="biz.coupon.api.service.DetailCouponService" ref="detailCouponService" timeout="12000"/>
 </beans>

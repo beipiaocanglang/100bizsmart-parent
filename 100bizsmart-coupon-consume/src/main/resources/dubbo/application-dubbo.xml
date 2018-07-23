@@ -20,4 +20,7 @@
     <!-- 生成远程服务代理，可以和本地bean一样使用thuserService -->
     <dubbo:reference interface="biz.coupon.api.service.DfieldCheckService" id="dfieldCheckService"/>
     <dubbo:reference interface="biz.coupon.api.service.DpcUserTabService" id="dpcUserTabService"/>
+
+    <dubbo:reference interface="biz.coupon.api.service.MainCouponService" id="mainCouponService"/>
+    <dubbo:reference interface="biz.coupon.api.service.DetailCouponService" id="detailCouponService"/>
 </beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlList tableName="dpc_user_tab">
+	<primaryKey dbPrimaryKey="id" classPrimaryKey="id" type="java.lang.Long"/>
+	<tableFiledList>
+			<filed dbFiledName="user_id"                classFiledName="userId"             type="java.lang.String"/>
+			<filed dbFiledName="password"               classFiledName="password"           type="java.lang.String"/>
+			<filed dbFiledName="user_name"              classFiledName="userName"           type="java.lang.String"/>
+			<filed dbFiledName="real_name"              classFiledName="realName"           type="java.lang.String"/>
+			<filed dbFiledName="leaders_tel"            classFiledName="leadersTel"         type="java.lang.String"/>
+			<filed dbFiledName="mail_address"           classFiledName="mailAddress"        type="java.lang.String"/>
+			<filed dbFiledName="address"                classFiledName="address"            type="java.util.Date"/>
+			<filed dbFiledName="user_type"              classFiledName="userType"           type="java.lang.String"/>
+			<filed dbFiledName="remarks"                classFiledName="remarks"            type="java.util.Date"/>
+            <filed dbFiledName="control_confirm_flg"    classFiledName="controlConfirmFlg"  type="java.lang.String"/>
+            <filed dbFiledName="company_id"             classFiledName="companyId"          type="java.lang.String"/>
+            <filed dbFiledName="role_id"                classFiledName="roleId"             type="java.lang.String"/>
+            <filed dbFiledName="del_flg"                classFiledName="delFlg"             type="java.lang.String"/>
+            <filed dbFiledName="ins_user"               classFiledName="insUser"            type="java.lang.String"/>
+            <filed dbFiledName="ins_time"               classFiledName="insTime"            type="java.lang.String"/>
+            <filed dbFiledName="upd_user"               classFiledName="updUser"            type="java.util.Date"/>
+            <filed dbFiledName="upd_time"               classFiledName="updTime"            type="java.lang.String"/>
+            <filed dbFiledName="reserve_col_1"          classFiledName="reserveCol1"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_2"          classFiledName="reserveCol2"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_3"          classFiledName="reserveCol3"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_4"          classFiledName="reserveCol4"        type="java.util.Date"/>
+            <filed dbFiledName="reserve_col_5"          classFiledName="reserveCol5"        type="java.util.Date"/>
+	</tableFiledList>
+	<sqlElement key="findByObj">
+	    <![CDATA[
+			select * from dpc_user_tab where 1 = 1
+			#if("$!id" != "") and id = :id #end
+			#if("$!userId" != "") and user_id = :userId #end
+			#if("$!password" != "") and password = :password #end
+			#if("$!userName" != "") and user_name = :userName #end
+			#if("$!realName" != "") and real_name = :realName #end
+	    ]]>
+    </sqlElement>
+</sqlList>

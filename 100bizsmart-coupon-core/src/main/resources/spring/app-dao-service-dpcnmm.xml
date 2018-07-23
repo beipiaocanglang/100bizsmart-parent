@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 参数校验 -->
+	<bean id="dfieldCheckDao" class="biz.coupon.core.dao.impl.DfieldCheckDaoImpl" parent="genericNamedDao"/>
+	<bean id="dfieldCheckService" class="biz.coupon.core.service.impl.DfieldCheckServiceImpl">
+   	 	<constructor-arg index="0" ref="dfieldCheckDao"/>
+   	</bean>
+    <bean id="dpcUserTabDao" class="biz.coupon.core.dao.impl.DpcUserTabDaoImpl" parent="genericNamedDao"/>
+    <bean id="dpcUserTabService" class="biz.coupon.core.service.impl.DpcUserTabServiceImpl">
+        <constructor-arg index="0" ref="dpcUserTabDao"/>
+    </bean>
+
+    <!--<bean id="apiUserDao" class="biz.wfj.smallprogram.core.dao.impl.ApiUserDaoImpl" parent="genericNamedDao"/>
+    <bean id="apiUserLevelDao" class="biz.wfj.smallprogram.core.dao.impl.ApiUserLevelDaoImpl" parent="genericNamedDao"/>
+    <bean id="apiUserService" class="biz.wfj.smallprogram.core.service.impl.ApiUserServiceImpl">
+        <constructor-arg index="0" ref="apiUserDao"/>
+        <constructor-arg index="1" ref="apiUserLevelDao"/>
+    </bean>-->
+</beans>

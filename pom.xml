@@ -17,6 +17,9 @@
         <module>100bizsmart-wfj-smallprogram-api</module>
         <module>100bizsmart-wfj-smallprogram-consume</module>
         <module>100bizsmart-wfj-smallprogram-core</module>
+        <module>100bizsmart-coupon-api</module>
+        <module>100bizsmart-coupon-core</module>
+        <module>100bizsmart-coupon-consume</module>
     </modules>
 
     <!-- 指定仓库地址 -->
